@@ -1,0 +1,12 @@
+- name: Simple Print Playbook
+  hosts: all
+  vars:
+    my_name: Rounak
+  tasks:
+    - name: simple message Display
+      command: echo "Hello {{ my-name }}"
+
+
+
+# Jinja2 delimiters that tell Ansible to evaluate the variable inside and replace it with its actual value.
+# usning jinja {{.... }} you can call any variable.

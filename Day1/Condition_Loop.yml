@@ -1,0 +1,28 @@
+
+- name: Installing packages on Remote Server
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: Installing Nginx on Remote Server
+      apt:
+        name: nginx
+        state: latest
+      register: installation_result
+      ignore_errors: yes
+
+    - name: Display success message
+      debug:
+        msg: "Nginx installed successfully!"
+      when: installation_result is succeeded
+
+    - name: Display failure message
+      debug:
+        msg: "Nginx installation failed: {{ installation_result.msg }}"
+      when: installation_result is failed
+
+
+#these are ansible keywords, not module: register,ignore_errors
+# register: put the ouput in s files called  installation_result
+#ignore_errors : if the first task failed still it will run the follwing tasks.
+#{{ installation_result.msg }}" : . msg means it only show the message part.

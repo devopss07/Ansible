@@ -1,0 +1,6 @@
+How to chek system performace of Liux system:
+ansible -i hosts.ini server -a "df -h"
+
+How to check the uptime of linux system
+ansible -i hosts.ini server -a "uptime"
+

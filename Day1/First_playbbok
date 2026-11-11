@@ -1,0 +1,14 @@
+- name: Simple Print Playbook
+  hosts: all
+  tasks:
+    - name: simple message Display
+      debug:
+        msg: "This is the hostame of all server {{ ansible_hostname }}
+
+
+
+
+# In Ansible, "ansible_net_hostname" is called an Ansible Fact 
+# The double curly braces {{ ... }} are, 
+# Jinja2 delimiters that tell Ansible to evaluate the variable inside and replace it with its actual value.
+# debug is a Ansibl Module
